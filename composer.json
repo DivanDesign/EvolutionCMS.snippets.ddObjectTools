@@ -1,0 +1,28 @@
+{
+	"name": "dd/evolutioncms-snippets-ddobjecttools",
+	"type": "modxevo-snippet",
+	"version": "0.1.0",
+	"description": "Tools for modifying objects.",
+	"keywords": [
+		"modx",
+		"modx evo",
+		"modx evolution",
+		"evo",
+		"evo cms",
+		"evolutioncms",
+		"evolution cms",
+		"dd group",
+		"dd studio",
+		"divandesign",
+		"ddobjecttools",
+		"object tools",
+		"objects",
+		"json",
+		"merge json",
+		"merge objects"
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"dd/modxevo-library-ddtools": ">=0.31"
+	}
+}
