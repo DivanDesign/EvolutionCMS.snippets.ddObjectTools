@@ -7,7 +7,7 @@ Tools for modifying objects.
 
 * PHP >= 5.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.31
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.34
 
 
 ## Documentation
@@ -47,6 +47,16 @@ Elements → Snippets: Create a new snippet with the following data:
 	
 * `extend->deep`
 	* Desctription: If true, the merge becomes recursive (aka. deep copy).
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `extend->overwriteWithEmpty`
+	* Desctription: Overwrite fields with empty values.  
+		The following values are considered to be empty:
+		* `''` — an empty string
+		* `[]` — an empty array
+		* `(object) []` — an empty object
+		* `NULL`
 	* Valid values: `boolean`
 	* Default value: `true`
 
