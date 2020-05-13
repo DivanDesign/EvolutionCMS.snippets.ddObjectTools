@@ -70,7 +70,18 @@ if (isset($getPropValue)){
 	]);
 }
 
-$snippetResult = json_encode($sourceObject);
+$snippetResult = $sourceObject;
+
+if (
+	is_object($snippetResult) ||
+	is_array($snippetResult)
+){
+	$snippetResult = json_encode(
+		$snippetResult,
+		//JSON_UNESCAPED_UNICODE — Не кодировать многобайтные символы Unicode | JSON_UNESCAPED_SLASHES — Не экранировать /
+		JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+	);
+}
 
 return $snippetResult;
 ?>
