@@ -25,7 +25,10 @@ $sourceObject =
 	''
 ;
 
-if (!is_object($sourceObject)){
+if (
+	!is_object($sourceObject) &&
+	!is_array($sourceObject)
+){
 	$sourceObject = new stdClass();
 }
 

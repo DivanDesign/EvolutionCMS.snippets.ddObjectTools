@@ -26,8 +26,10 @@ Elements → Snippets: Create a new snippet with the following data:
 ### Parameters description
 
 * `sourceObject`
-	* Desctription: Source object.
-	* Valid values: `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+	* Desctription: Source object or array.
+	* Valid values:
+		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 	* Default: `'{}'`
 	
 * `extend`
@@ -36,13 +38,15 @@ Elements → Snippets: Create a new snippet with the following data:
 	* Default value: —
 	
 * `extend->objects`
-	* Desctription: Objects to merge.
+	* Desctription: Objects or arrays to merge. Moreover, objects can extend arrays and vice versa.
 	* Valid values: `array`
 	* **Required**
 	
 * `extend->objects[i]`
-	* Desctription: An object containing additional properties to merge in.
-	* Valid values: `object`
+	* Desctription: An object or array containing additional properties to merge in.
+	* Valid values:
+		* `object`
+		* `array`
 	* **Required**
 	
 * `extend->deep`
