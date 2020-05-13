@@ -63,14 +63,17 @@ Elements → Snippets: Create a new snippet with the following data:
 		* `NULL`
 	* Valid values: `boolean`
 	* Default value: `true`
+	
+* `getPropValue`
+	* Desctription: Object property name or array index to return.
+	* Valid values: `string`
+	* Default value: —
 
 
 ### Examples
 
 
 #### Merge the contents of two or more objects together into the first object (the `extend` parameter)
-
-Some example description.
 
 ```
 [[ddObjectTools?
@@ -108,6 +111,37 @@ Returns:
 	"bird": 0,
 }
 ```
+
+
+#### Get an object property
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		"firstName": "Chunk",
+		"lastName": "Norris"
+	}`
+	&getPropValue=`firstName`
+]]
+```
+
+Returns `Chunk`.
+
+
+#### Get an array element
+
+```
+[[ddObjectTools?
+	&sourceObject=`[
+		"Pink Floyd",
+		"The Beatles",
+		"Queen"
+	]`
+	&getPropValue=`2`
+]]
+```
+
+Returns `Queen`.
 
 
 ## [Home page →](https://code.divandesign.biz/modx/ddobjecttools)

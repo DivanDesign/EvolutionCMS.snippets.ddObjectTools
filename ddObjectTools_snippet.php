@@ -32,6 +32,7 @@ if (
 	$sourceObject = new stdClass();
 }
 
+//If need to extend
 if (isset($extend)){
 	$extend = json_decode($extend);
 	
@@ -44,6 +45,14 @@ if (isset($extend)){
 		
 		$sourceObject = \DDTools\ObjectTools::extend($extend);
 	}
+}
+
+//If need to return only specified item
+if (isset($getPropValue)){
+	$sourceObject = \DDTools\ObjectTools::getPropValue([
+		'object' => $sourceObject,
+		'propName' => $getPropValue
+	]);
 }
 
 $snippetResult = json_encode($sourceObject);
