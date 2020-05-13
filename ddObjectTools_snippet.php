@@ -39,10 +39,11 @@ if (isset($extend)){
 			$sourceObject
 		);
 		
-		$snippetResult = json_encode(\DDTools\ObjectTools::extend($extend));
+		$sourceObject = \DDTools\ObjectTools::extend($extend);
 	}
 }
 
+$snippetResult = json_encode($sourceObject);
 
 return $snippetResult;
 ?>
