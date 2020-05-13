@@ -1,7 +1,7 @@
 <?php
 /**
  * ddObjectTools
- * @version 0.1 (2020-04-23)
+ * @version 0.2 (2020-05-14)
  * 
  * @see README.md
  * 
@@ -19,14 +19,69 @@ require_once(
 //The snippet must return an empty string even if result is absent
 $snippetResult = '';
 
+if (!isset($sourceObject)){
+	$sourceObject = '';
+}
+
+//If set as JSON
+if (is_string($sourceObject)){
+	$sourceObject = json_decode($sourceObject);
+}
+
+if (
+	!is_object($sourceObject) &&
+	!is_array($sourceObject)
+){
+	$sourceObject = new stdClass();
+}
+
+//If need to extend
 if (isset($extend)){
-	$extend = json_decode($extend);
+	if (is_string($extend)){
+		$extend = json_decode($extend);
+	}
 	
-	if (is_object($extend)){
-		$snippetResult = json_encode(\DDTools\ObjectTools::extend($extend));
+	if (
+		is_object($extend) ||
+		is_array($extend)
+	){
+		//Prepend source object
+		if (is_object($extend)){
+			array_unshift(
+				$extend->objects,
+				$sourceObject
+			);
+		}else{
+			array_unshift(
+				$extend['objects'],
+				$sourceObject
+			);
+		}
+		
+		$sourceObject = \DDTools\ObjectTools::extend($extend);
 	}
 }
 
+//If need to return only specified item
+if (isset($getPropValue)){
+	$sourceObject = \DDTools\ObjectTools::getPropValue([
+		'object' => $sourceObject,
+		'propName' => $getPropValue
+	]);
+}
+
+$snippetResult = $sourceObject;
+
+if (
+	is_object($snippetResult) ||
+	is_array($snippetResult)
+){
+	$snippetResult = json_encode(
+		$snippetResult,
+		//JSON_UNESCAPED_UNICODE — Не кодировать многобайтные символы Unicode | JSON_UNESCAPED_SLASHES — Не экранировать /
+		JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+	);
+}
 
 return $snippetResult;
 ?>
