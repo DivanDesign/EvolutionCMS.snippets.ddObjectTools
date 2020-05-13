@@ -25,21 +25,19 @@ Elements → Snippets: Create a new snippet with the following data:
 
 ### Parameters description
 
+* `sourceObject`
+	* Desctription: Source object.
+	* Valid values: `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+	* Default: `'{}'`
+	
 * `extend`
-	* Desctription: Merge the contents of two or more objects together into the first object.
+	* Desctription: Merge the contents of two or more objects together into `sourceObject` (it will receive the new properties).
 	* Valid values: `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 	* Default value: —
 	
 * `extend->objects`
 	* Desctription: Objects to merge.
 	* Valid values: `array`
-	* **Required**
-	
-* `extend->objects[0]`
-	* Desctription: The object to extend. It will receive the new properties.
-	* Valid values:
-		* `object`
-		* `NULL` — pass `NULL` to create the new object.
 	* **Required**
 	
 * `extend->objects[i]`
@@ -62,16 +60,16 @@ Some example description.
 
 ```
 [[ddObjectTools?
+	&sourceObject=`{
+		"cat": "mew",
+		"dog": {
+			"name": "Floyd",
+			"weight": 6
+		},
+		"rabbit": 42
+	}`
 	&extend=`{
 		"objects": [
-			{
-				"cat": "mew",
-				"dog": {
-					"name": "Floyd",
-					"weight": 6
-				},
-				"rabbit": 42
-			},
 			{
 				"dog": {
 					"weight": 10

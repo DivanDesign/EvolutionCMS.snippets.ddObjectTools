@@ -19,10 +19,26 @@ require_once(
 //The snippet must return an empty string even if result is absent
 $snippetResult = '';
 
+$sourceObject =
+	isset($sourceObject) ?
+	json_decode($sourceObject) :
+	''
+;
+
+if (!is_object($sourceObject)){
+	$sourceObject = new stdClass();
+}
+
 if (isset($extend)){
 	$extend = json_decode($extend);
 	
 	if (is_object($extend)){
+		//Prepend source object
+		array_unshift(
+			$extend->objects,
+			$sourceObject
+		);
+		
 		$snippetResult = json_encode(\DDTools\ObjectTools::extend($extend));
 	}
 }
