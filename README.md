@@ -30,11 +30,16 @@ Elements → Snippets: Create a new snippet with the following data:
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `object`
+		* `array`
 	* Default: `'{}'`
 	
 * `extend`
 	* Desctription: Merge the contents of two or more objects together into `sourceObject` (it will receive the new properties).
-	* Valid values: `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+	* Valid values:
+		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `object`
+		* `arrayAssociative`
 	* Default value: —
 	
 * `extend->objects`

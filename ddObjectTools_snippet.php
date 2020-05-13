@@ -19,11 +19,14 @@ require_once(
 //The snippet must return an empty string even if result is absent
 $snippetResult = '';
 
-$sourceObject =
-	isset($sourceObject) ?
-	json_decode($sourceObject) :
-	''
-;
+if (!isset($sourceObject)){
+	$sourceObject = '';
+}
+
+//If set as JSON
+if (is_string($sourceObject)){
+	$sourceObject = json_decode($sourceObject);
+}
 
 if (
 	!is_object($sourceObject) &&
@@ -34,14 +37,26 @@ if (
 
 //If need to extend
 if (isset($extend)){
-	$extend = json_decode($extend);
+	if (is_string($extend)){
+		$extend = json_decode($extend);
+	}
 	
-	if (is_object($extend)){
+	if (
+		is_object($extend) ||
+		is_array($extend)
+	){
 		//Prepend source object
-		array_unshift(
-			$extend->objects,
-			$sourceObject
-		);
+		if (is_object($extend)){
+			array_unshift(
+				$extend->objects,
+				$sourceObject
+			);
+		}else{
+			array_unshift(
+				$extend['objects'],
+				$sourceObject
+			);
+		}
 		
 		$sourceObject = \DDTools\ObjectTools::extend($extend);
 	}
