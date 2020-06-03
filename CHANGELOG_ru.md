@@ -1,6 +1,16 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Version 0.3 (2020-06-03)
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1.
+* \+ Параметры → `sourceObject`, `extend`: Также может задаваться как `stringQueryFormated`.
+* \* Рефакторинг.
+* \* README:
+	* \- Home page.
+	* \+ Ссылки.
+* \+ CHANGELOG_ru.
+
+
 ## Версия 0.2 (2020-05-14)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.34.
 * \+ Параметры → `sourceObject`.
