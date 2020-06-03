@@ -7,7 +7,7 @@ Tools for modifying objects.
 
 * PHP >= 5.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.34
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.38.1
 
 
 ## Documentation
@@ -30,16 +30,20 @@ Elements → Snippets: Create a new snippet with the following data:
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
-		* `object`
-		* `array`
+		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
+			* `object`
+			* `array`
 	* Default: `'{}'`
 	
 * `extend`
 	* Desctription: Merge the contents of two or more objects together into `sourceObject` (it will receive the new properties).
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
-		* `object`
-		* `arrayAssociative`
+		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
+			* `object`
+			* `arrayAssociative`
 	* Default value: —
 	
 * `extend->objects`

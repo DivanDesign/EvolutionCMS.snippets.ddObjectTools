@@ -21,42 +21,26 @@ $snippetResult = '';
 
 if (!isset($sourceObject)){
 	$sourceObject = '';
-}
-
-//If set as JSON
-if (is_string($sourceObject)){
-	$sourceObject = json_decode($sourceObject);
-}
-
-if (
-	!is_object($sourceObject) &&
-	!is_array($sourceObject)
-){
-	$sourceObject = new stdClass();
+}else{
+	$sourceObject = \DDTools\ObjectTools::convertType([
+		'object' => $sourceObject,
+		'type' => 'objectAuto'
+	]);
 }
 
 //If need to extend
 if (isset($extend)){
-	if (is_string($extend)){
-		$extend = json_decode($extend);
-	}
+	$extend = \DDTools\ObjectTools::convertType([
+		'object' => $extend,
+		'type' => 'objectArray'
+	]);
 	
-	if (
-		is_object($extend) ||
-		is_array($extend)
-	){
-		//Prepend source object
-		if (is_object($extend)){
-			array_unshift(
-				$extend->objects,
-				$sourceObject
-			);
-		}else{
-			array_unshift(
-				$extend['objects'],
-				$sourceObject
-			);
-		}
+	//If is valid
+	if (!empty($extend)){
+		array_unshift(
+			$extend['objects'],
+			$sourceObject
+		);
 		
 		$sourceObject = \DDTools\ObjectTools::extend($extend);
 	}
@@ -76,11 +60,10 @@ if (
 	is_object($snippetResult) ||
 	is_array($snippetResult)
 ){
-	$snippetResult = json_encode(
-		$snippetResult,
-		//JSON_UNESCAPED_UNICODE — Не кодировать многобайтные символы Unicode | JSON_UNESCAPED_SLASHES — Не экранировать /
-		JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-	);
+	$snippetResult = \DDTools\ObjectTools::convertType([
+		'object' => $snippetResult,
+		'type' => 'stringJsonAuto'
+	]);
 }
 
 return $snippetResult;
