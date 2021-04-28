@@ -1,13 +1,13 @@
 <?php
 /**
  * ddObjectTools
- * @version 0.3 (2020-06-03)
+ * @version 0.4 (2021-04-28)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/ddobjecttools
  * 
- * @copyright 2020 DD Group {@link https://DivanDesign.biz }
+ * @copyright 2020–2021 DD Group {@link https://DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
@@ -16,55 +16,8 @@ require_once(
 	'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
-//The snippet must return an empty string even if result is absent
-$snippetResult = '';
-
-if (!isset($sourceObject)){
-	$sourceObject = '';
-}else{
-	$sourceObject = \DDTools\ObjectTools::convertType([
-		'object' => $sourceObject,
-		'type' => 'objectAuto'
-	]);
-}
-
-//If need to extend
-if (isset($extend)){
-	$extend = \DDTools\ObjectTools::convertType([
-		'object' => $extend,
-		'type' => 'objectArray'
-	]);
-	
-	//If is valid
-	if (!empty($extend)){
-		array_unshift(
-			$extend['objects'],
-			$sourceObject
-		);
-		
-		$sourceObject = \DDTools\ObjectTools::extend($extend);
-	}
-}
-
-//If need to return only specified item
-if (isset($getPropValue)){
-	$sourceObject = \DDTools\ObjectTools::getPropValue([
-		'object' => $sourceObject,
-		'propName' => $getPropValue
-	]);
-}
-
-$snippetResult = $sourceObject;
-
-if (
-	is_object($snippetResult) ||
-	is_array($snippetResult)
-){
-	$snippetResult = \DDTools\ObjectTools::convertType([
-		'object' => $snippetResult,
-		'type' => 'stringJsonAuto'
-	]);
-}
-
-return $snippetResult;
+return \DDTools\Snippet::runSnippet([
+	'name' => 'ddObjectTools',
+	'params' => $params
+]);
 ?>
