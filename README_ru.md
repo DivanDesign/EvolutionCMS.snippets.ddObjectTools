@@ -22,7 +22,7 @@
 ##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.3</b> Tools for modifying objects.`.
+2. Описание: `<b>0.4</b> Tools for modifying objects.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.

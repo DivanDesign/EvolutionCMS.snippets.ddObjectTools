@@ -1,6 +1,20 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Version 0.4 (2021-04-28)
+* \* Attention! PHP >= 5.6 is required.
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.49.1 is required.
+* \+ Parameters → `sourceObject`, `extend`: Can also be set as [HJSON](https://hjson.github.io/).
+* \+ You can just call `\DDTools\Snippet::runSnippet` to run the snippet without DB and eval (see README → Examples).
+* \+ `\ddObjectTools\Snippet`: The new class. All snippet code was moved here.
+* \+ README:
+	* \+ Documentation → Installation → Using (MODX)EvolutionCMS.libraries.ddInstaller.
+	* \+ Links → Packagist.
+	* \+ Text improvements.
+* \+ README_ru.
+* \+ Composer.json → `support`.
+
+
 ## Version 0.3 (2020-06-03)
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
 * \+ Parameters → `sourceObject`, `extend`: Can also be set as `stringQueryFormated`.

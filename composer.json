@@ -1,7 +1,7 @@
 {
 	"name": "dd/evolutioncms-snippets-ddobjecttools",
 	"type": "modxevo-snippet",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Tools for modifying objects.",
 	"keywords": [
 		"modx",
