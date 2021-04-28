@@ -25,6 +25,9 @@
 		"extend arrays"
 	],
 	"homepage": "https://code.divandesign.biz/modx/ddobjecttools",
+	"support": {
+		"chat": "https://t.me/dd_code"
+	},
 	"authors": [
 		{
 			"name": "DD Group",
