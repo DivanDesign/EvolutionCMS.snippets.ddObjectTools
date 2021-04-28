@@ -69,10 +69,10 @@ require_once(
 		* It can also be set as a native PHP object or array (e. g. for calls through `$modx->runSnippet`):
 			* `array`
 			* `object`
-	* Default: `'{}'`
+	* Default value: `'{}'`
 	
 * `extend`
-	* Desctription: Merge the contents of two or more objects together into `sourceObject` (it will receive the new properties).
+	* Desctription: Merge the contents of two or more objects / arrays together into `sourceObject` (it will receive the new properties).
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
@@ -95,7 +95,7 @@ require_once(
 	* **Required**
 	
 * `extend->deep`
-	* Desctription: If true, the merge becomes recursive (aka. deep copy).
+	* Desctription: If true, the merge becomes recursive (aka “deep copy”).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
@@ -110,7 +110,7 @@ require_once(
 	* Default value: `true`
 	
 * `getPropValue`
-	* Desctription: Object property name or array index to return.
+	* Desctription: Object property name or array index / key to return.
 	* Valid values: `string`
 	* Default value: —
 
@@ -153,7 +153,7 @@ Returns:
 		"weight": 10,
 	},
 	"rabbit": 42,
-	"bird": 0,
+	"bird": 0
 }
 ```
 
@@ -163,14 +163,14 @@ Returns:
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"firstName": "Chunk",
+		"firstName": "Chuck",
 		"lastName": "Norris"
 	}`
 	&getPropValue=`firstName`
 ]]
 ```
 
-Returns `Chunk`.
+Returns: `Chuck`.
 
 
 #### Get an array element
@@ -186,7 +186,7 @@ Returns `Chunk`.
 ]]
 ```
 
-Returns `Queen`.
+Returns: `Queen`.
 
 
 #### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
