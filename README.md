@@ -30,20 +30,23 @@ Elements → Snippets: Create a new snippet with the following data:
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
+		* `stringHjsonArray` — as [HJSON](https://hjson.github.io/)
 		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
-		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
-			* `object`
+		* It can also be set as a native PHP object or array (e. g. for calls through `$modx->runSnippet`):
 			* `array`
+			* `object`
 	* Default: `'{}'`
 	
 * `extend`
 	* Desctription: Merge the contents of two or more objects together into `sourceObject` (it will receive the new properties).
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
 		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
-		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
-			* `object`
+		* It can also be set as a native PHP object or array (e. g. for calls through `$modx->runSnippet`):
 			* `arrayAssociative`
+			* `object`
 	* Default value: —
 	
 * `extend->objects`
