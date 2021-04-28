@@ -15,12 +15,20 @@ Tools for modifying objects.
 
 ### Installation
 
-Elements → Snippets: Create a new snippet with the following data:
+
+#### 1. Elements → Snippets: Create a new snippet with the following data
+
 1. Snippet name: `ddObjectTools`.
 2. Description: `<b>0.3</b> Tools for modifying objects.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddObjectTools_snippet.php` file from the archive.
+
+
+#### 2. Elements → Manage Files
+
+1. Create a new folder `assets/snippets/ddObjectTools/`.
+2. Extract the archive to the folder (except `ddObjectTools_snippet.php`).
 
 
 ### Parameters description
@@ -154,6 +162,42 @@ Returns `Chunk`.
 ```
 
 Returns `Queen`.
+
+
+#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+
+```php
+//Include (MODX)EvolutionCMS.libraries.ddTools
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
+
+//Run (MODX)EvolutionCMS.snippets.ddObjectTools
+\DDTools\Snippet::runSnippet([
+	'name' => 'ddObjectTools',
+	'params' => [
+		'sourceObject' => [
+			'cat' => 'mew',
+			'dog' => [
+				'name' => 'Floyd',
+				'weight' => 6
+			],
+			'rabbit' => 42
+		],
+		'extend' => [
+			'objects' => [
+				[
+					'dog' => [
+						'weight' => 11
+					],
+					'bird' => 0
+				]
+			]
+		]
+	]
+]);
+```
 
 
 ## Links
