@@ -113,6 +113,15 @@ require_once(
 	* Desctription: Object property name or array index / key to return.
 	* Valid values: `string`
 	* Default value: —
+	
+* `outputter`
+	* Desctription: Output format (when result is an object or array).  
+		Values are case insensitive (the following values are equal: `'jsonauto'`, `'JsonAuto'`, `'JSONAUTO'`, etc).
+	* Valid values:
+		* `'jsonAuto'` — `jsonObject` or `jsonArray` depends on result object
+		* `'jsonObject'`
+		* `'jsonArray'`
+	* Default value: `'jsonAuto'`
 
 
 ### Examples
@@ -187,6 +196,28 @@ Returns: `Chuck`.
 ```
 
 Returns: `Queen`.
+
+
+#### Convert a JSON object to an array
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		"firstName": "Angus",
+		"lastName": "Young"
+	}`
+	&outputter=`jsonArray`
+]]
+```
+
+Returns:
+
+```json
+[
+	"Angus",
+	"Young"
+]
+```
 
 
 #### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
