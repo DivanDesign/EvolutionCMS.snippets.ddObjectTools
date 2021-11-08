@@ -3,13 +3,14 @@ namespace ddObjectTools;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '0.4.0',
+		$version = '0.5.0',
 		
 		$params = [
 			//Defaults
 			'sourceObject' => '{}',
 			'extend' => null,
-			'getPropValue' => null
+			'getPropValue' => null,
+			'outputter' => 'jsonAuto'
 		],
 		
 		$paramsTypes = [
@@ -61,7 +62,9 @@ class Snippet extends \DDTools\Snippet {
 		){
 			$result = \DDTools\ObjectTools::convertType([
 				'object' => $result,
-				'type' => 'stringJsonAuto'
+				'type' =>
+					'string' .
+					$this->params->outputter
 			]);
 		}
 		

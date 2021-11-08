@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.49.1
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.51
 
 
 ## Документация
@@ -22,7 +22,7 @@
 ##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.4</b> Tools for modifying objects.`.
+2. Описание: `<b>0.5</b> Tools for modifying objects.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
@@ -113,6 +113,16 @@ require_once(
 	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.
 	* Допустимые значения: `string`
 	* Значение по умолчанию: —
+	
+* `outputter`
+	* Описание: Формат вывода (когда результат является объектом или массивом).  
+		Значения регистронезависимы (следующие значения равны: `jsonauto`, `JsonAuto`, `JSONAUTO` и т. п.).
+	* Допустимые значения:
+		* `'jsonAuto'` — автоматиески будет выбран `jsonObject` или `jsonArray`, в зависимости от результата
+		* `'jsonObject'`
+		* `'jsonArray'`
+		* `'queryFormated'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
+	* Значение по умолчанию: `'jsonAuto'`
 
 
 ### Примеры
@@ -187,6 +197,28 @@ require_once(
 ```
 
 Вернёт: `Queen`.
+
+
+#### Сконвертировать JSON объект в массив
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		"firstName": "Angus",
+		"lastName": "Young"
+	}`
+	&outputter=`jsonArray`
+]]
+```
+
+Вернёт:
+
+```json
+[
+	"Angus",
+	"Young"
+]
+```
 
 
 #### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
