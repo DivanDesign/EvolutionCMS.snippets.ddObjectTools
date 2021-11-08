@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Version 0.5 (2021-11-08)
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.51 is required.
+* \+ Parameters → `outputter`: The new parameter. Allows to forcibly convert the snippet result into a JSON object/array or URL-encoded query string if needed.
+
+
 ## Version 0.4 (2021-04-28)
 * \* Attention! PHP >= 5.6 is required.
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.49.1 is required.

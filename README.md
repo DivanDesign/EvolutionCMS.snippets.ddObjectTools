@@ -22,7 +22,7 @@ Tools for modifying objects.
 ##### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddObjectTools`.
-2. Description: `<b>0.4</b> Tools for modifying objects.`.
+2. Description: `<b>0.5</b> Tools for modifying objects.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddObjectTools_snippet.php` file from the archive.
