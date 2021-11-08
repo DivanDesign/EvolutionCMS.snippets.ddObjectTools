@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.49.1
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.51
 
 
 ## Документация
@@ -121,6 +121,7 @@ require_once(
 		* `'jsonAuto'` — автоматиески будет выбран `jsonObject` или `jsonArray`, в зависимости от результата
 		* `'jsonObject'`
 		* `'jsonArray'`
+		* `'queryFormated'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
 	* Значение по умолчанию: `'jsonAuto'`
 
 
