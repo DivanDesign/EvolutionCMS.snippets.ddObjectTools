@@ -10,16 +10,14 @@ Tools for modifying objects.
 * [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.51
 
 
-## Documentation
+
+## Installation
 
 
-### Installation
+### Manually
 
 
-#### Manually
-
-
-##### 1. Elements → Snippets: Create a new snippet with the following data
+#### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddObjectTools`.
 2. Description: `<b>0.5</b> Tools for modifying objects.`.
@@ -28,13 +26,13 @@ Tools for modifying objects.
 5. Snippet code (php): Insert content of the `ddObjectTools_snippet.php` file from the archive.
 
 
-##### 2. Elements → Manage Files
+#### 2. Elements → Manage Files
 
 1. Create a new folder `assets/snippets/ddObjectTools/`.
 2. Extract the archive to the folder (except `ddObjectTools_snippet.php`).
 
 
-#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -56,7 +54,7 @@ require_once(
 * If `ddObjectTools` is already exist on your site, `ddInstaller` will check it version and update it if needed.
 
 
-### Parameters description
+## Parameters description
 
 * `sourceObject`
 	* Desctription: Source object or array.
@@ -125,10 +123,10 @@ require_once(
 	* Default value: `'jsonAuto'`
 
 
-### Examples
+## Examples
 
 
-#### Merge the contents of two or more objects together into the first object (the `extend` parameter)
+### Merge the contents of two or more objects together into the first object (the `extend` parameter)
 
 ```
 [[ddObjectTools?
@@ -168,7 +166,7 @@ Returns:
 ```
 
 
-#### Get an object property
+### Get an object property
 
 ```
 [[ddObjectTools?
@@ -183,7 +181,7 @@ Returns:
 Returns: `Chuck`.
 
 
-#### Get an array element
+### Get an array element
 
 ```
 [[ddObjectTools?
@@ -199,7 +197,7 @@ Returns: `Chuck`.
 Returns: `Queen`.
 
 
-#### Convert a JSON object to an array
+### Convert a JSON object to an array
 
 ```
 [[ddObjectTools?
@@ -221,7 +219,7 @@ Returns:
 ```
 
 
-#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
 
 ```php
 //Include (MODX)EvolutionCMS.libraries.ddTools
