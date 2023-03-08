@@ -1,6 +1,10 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Версия 0.6 (2023-03-08)
+* \+ Параметры → `extend->objects`: Также может быть задан, как [JSON](https://ru.wikipedia.org/wiki/JSON), [HJSON](https://hjson.github.io/) или [Query string](https://en.wikipedia.org/wiki/Query_string).
+
+
 ## Версия 0.5 (2021-11-08)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.51.
 * \+ Параметры → `outputter`: Новый параметр. Позволяет принудительно преобразовать результат сниппета в JSON объект/массив или URL-кодированную строку запроса, если это необходимо.

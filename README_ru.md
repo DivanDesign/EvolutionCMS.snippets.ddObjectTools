@@ -22,7 +22,7 @@
 ##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.5</b> Tools for modifying objects.`.
+2. Описание: `<b>0.6</b> Tools for modifying objects.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
@@ -84,7 +84,11 @@ require_once(
 	
 * `extend->objects`
 	* Описание: Объекты или массивы для объединения. Кроме того, объекты могут расширять массивы и наоборот.
-	* Допустимые значения: `array`
+	* Допустимые значения:
+		* `array`
+		* `stringJsonArray` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
+		* `stringHjsonArray` — в виде [HJSON](https://hjson.github.io/)
+		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* **Обязателен**
 	
 * `extend->objects[i]`
