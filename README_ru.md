@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.51
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.57
 
 
 ## Документация
@@ -114,7 +114,8 @@ require_once(
 	* Значение по умолчанию: `true`
 	
 * `getPropValue`
-	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.
+	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.  
+		Вы также можете использовать `'.'` для получения вложенных свойств (больше информации см. `\DDTools\ObjectTools::getPropValue`).
 	* Допустимые значения: `string`
 	* Значение по умолчанию: —
 	
