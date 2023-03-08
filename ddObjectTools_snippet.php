@@ -1,13 +1,13 @@
 <?php
 /**
  * ddObjectTools
- * @version 0.5 (2021-11-08)
+ * @version 0.6 (2023-03-08)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.biz/modx/ddobjecttools
  * 
- * @copyright 2020–2021 DD Group {@link https://DivanDesign.biz }
+ * @copyright 2020–2023 DD Group {@link https://DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
