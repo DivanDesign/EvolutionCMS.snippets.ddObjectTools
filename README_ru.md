@@ -84,7 +84,11 @@ require_once(
 	
 * `extend->objects`
 	* Описание: Объекты или массивы для объединения. Кроме того, объекты могут расширять массивы и наоборот.
-	* Допустимые значения: `array`
+	* Допустимые значения:
+		* `array`
+		* `stringJsonArray` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
+		* `stringHjsonArray` — в виде [HJSON](https://hjson.github.io/)
+		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* **Обязателен**
 	
 * `extend->objects[i]`

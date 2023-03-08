@@ -20,7 +20,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.0 (2021-04-28)
+	 * @version 1.1 (2023-03-08)
 	 * 
 	 * @return {string}
 	 */
@@ -37,6 +37,13 @@ class Snippet extends \DDTools\Snippet {
 			
 			//If is valid
 			if (!empty($this->params->extend)){
+				if (!is_array($this->params->extend['objects'])){
+					$this->params->extend['objects'] = \DDTools\ObjectTools::convertType([
+						'object' => $this->params->extend['objects'],
+						'type' => 'objectArray'
+					]);
+				}
+				
 				array_unshift(
 					$this->params->extend['objects'],
 					$this->params->sourceObject

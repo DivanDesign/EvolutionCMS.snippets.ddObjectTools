@@ -82,7 +82,11 @@ require_once(
 	
 * `extend->objects`
 	* Desctription: Objects or arrays to merge. Moreover, objects can extend arrays and vice versa.
-	* Valid values: `array`
+	* Valid values:
+		* `array`
+		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonArray` — as [HJSON](https://hjson.github.io/)
+		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* **Required**
 	
 * `extend->objects[i]`
