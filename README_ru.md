@@ -121,12 +121,12 @@ require_once(
 	
 * `outputter`
 	* Описание: Формат вывода (когда результат является объектом или массивом).  
-		Значения регистронезависимы (следующие значения равны: `jsonauto`, `JsonAuto`, `JSONAUTO` и т. п.).
+		Значения регистронезависимы (следующие значения равны: `stringjsonauto`, `stringJsonAuto`, `STRINGJSONAUTO` и т. п.).
 	* Допустимые значения:
-		* `'jsonAuto'` — автоматиески будет выбран `jsonObject` или `jsonArray`, в зависимости от результата
-		* `'jsonObject'`
-		* `'jsonArray'`
-		* `'queryFormated'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
+		* `'stringJsonAuto'` — автоматиески будет выбран `stringJsonObject` или `stringJsonArray`, в зависимости от результата
+		* `'stringJsonObject'`
+		* `'stringJsonArray'`
+		* `'stringQueryFormatted'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
 	* Значение по умолчанию: `'jsonAuto'`
 
 

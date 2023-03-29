@@ -119,12 +119,12 @@ require_once(
 	
 * `outputter`
 	* Desctription: Output format (when result is an object or array).  
-		Values are case insensitive (the following values are equal: `'jsonauto'`, `'JsonAuto'`, `'JSONAUTO'`, etc).
+		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
 	* Valid values:
-		* `'jsonAuto'` — `jsonObject` or `jsonArray` depends on result object
-		* `'jsonObject'`
-		* `'jsonArray'`
-		* `'queryFormated'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `'stringJsonAuto'` — `stringJsonObject` or `stringJsonArray` depends on result object
+		* `'stringJsonObject'`
+		* `'stringJsonArray'`
+		* `'stringQueryFormatted'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* Default value: `'jsonAuto'`
 
 

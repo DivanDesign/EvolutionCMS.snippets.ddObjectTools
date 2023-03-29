@@ -10,13 +10,41 @@ class Snippet extends \DDTools\Snippet {
 			'sourceObject' => '{}',
 			'extend' => null,
 			'getPropValue' => null,
-			'outputter' => 'jsonAuto'
+			'outputter' => 'stringJsonAuto'
 		],
 		
 		$paramsTypes = [
 			'sourceObject' => 'objectAuto'
 		]
 	;
+	
+	/**
+	 * prepareParams
+	 * @version 1.0 (2023-03-29)
+	 *
+	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
+	 *
+	 * @return {void}
+	 */
+	protected function prepareParams($params = []){
+		parent::prepareParams($params);
+		
+		//Backward compatibility
+		$outputterFirstChars = substr(
+			strtolower($this->params->outputter),
+			0,
+			4
+		);
+		if (
+			$outputterFirstChars == 'json' ||
+			$outputterFirstChars == 'quer'
+		){
+			$this->params->outputter =
+				'string' .
+				$this->params->outputter
+			;
+		}
+	}
 	
 	/**
 	 * run
@@ -69,9 +97,7 @@ class Snippet extends \DDTools\Snippet {
 		){
 			$result = \DDTools\ObjectTools::convertType([
 				'object' => $result,
-				'type' =>
-					'string' .
-					$this->params->outputter
+				'type' => $this->params->outputter
 			]);
 		}
 		
