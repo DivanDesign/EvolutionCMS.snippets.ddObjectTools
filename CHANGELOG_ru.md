@@ -26,7 +26,7 @@
 
 ## Версия 0.3 (2020-06-03)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1.
-* \+ Параметры → `sourceObject`, `extend`: Также может задаваться как `stringQueryFormated`.
+* \+ Параметры → `sourceObject`, `extend`: Также может задаваться как `stringQueryFormatted`.
 * \* Рефакторинг.
 * \* README:
 	* \- Home page.
