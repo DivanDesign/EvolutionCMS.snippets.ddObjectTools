@@ -121,11 +121,16 @@ require_once(
 	* Desctription: Output format (when result is an object or array).  
 		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
 	* Valid values:
-		* `'stringJsonAuto'` — `stringJsonObject` or `stringJsonArray` depends on result object
-		* `'stringJsonObject'`
-		* `'stringJsonArray'`
-		* `'stringQueryFormatted'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
-	* Default value: `'jsonAuto'`
+		* The snippet can return object as string:
+			* `'stringJsonAuto'` — `stringJsonObject` or `stringJsonArray` depends on result object
+			* `'stringJsonObject'`
+			* `'stringJsonArray'`
+			* `'stringQueryFormatted'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* The snippet can also return object as a native PHP object or array (it is convenient to call through `\DDTools\Snippet`).
+			* `'objectAuto'` — `stdClass` or `array` depends on result object
+			* `'objectStdClass'` — `stdClass`
+			* `'objectArray'` — `array`
+	* Default value: `'stringJsonAuto'`
 
 
 ## Examples

@@ -123,11 +123,16 @@ require_once(
 	* Описание: Формат вывода (когда результат является объектом или массивом).  
 		Значения регистронезависимы (следующие значения равны: `stringjsonauto`, `stringJsonAuto`, `STRINGJSONAUTO` и т. п.).
 	* Допустимые значения:
-		* `'stringJsonAuto'` — автоматиески будет выбран `stringJsonObject` или `stringJsonArray`, в зависимости от результата
-		* `'stringJsonObject'`
-		* `'stringJsonArray'`
-		* `'stringQueryFormatted'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
-	* Значение по умолчанию: `'jsonAuto'`
+		* Сниппет умеет возвращать объект в виде строки:
+			* `'stringJsonAuto'` — автоматиески будет выбран `stringJsonObject` или `stringJsonArray`, в зависимости от результата
+			* `'stringJsonObject'`
+			* `'stringJsonArray'`
+			* `'stringQueryFormatted'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
+		* Сниппет также умеет возвращать объект в виде нативного PHP объекта или массива (удобно при вызове через `\DDTools\Snippet`):
+			* `'objectAuto'` — `stdClass` или `array` в зависимости от результата
+			* `'objectStdClass'` — `stdClass`
+			* `'objectArray'` — `array`
+	* Значение по умолчанию: `'stringJsonAuto'`
 
 
 ### Примеры

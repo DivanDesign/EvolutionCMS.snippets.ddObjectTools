@@ -48,14 +48,11 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.1 (2023-03-08)
+	 * @version 1.1.1 (2023-03-29)
 	 * 
 	 * @return {string}
 	 */
 	public function run(){
-		//The snippet must return an empty string even if result is absent
-		$result = '';
-		
 		//If need to extend
 		if (!is_null($this->params->extend)){
 			$this->params->extend = \DDTools\ObjectTools::convertType([
