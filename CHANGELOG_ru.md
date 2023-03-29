@@ -1,6 +1,21 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Версия 0.7 (2023-03-30)
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.57.
+* \+ Параметры → `getPropValue`: Теперь сниппет умеет получать значение свойства объекта или элемента массива на любом уровне вложенности. Просто используйте '.' в параметре для получения свойств вложенных элементов (больше информации см. `\DDTools\ObjectTools::getPropValue`).
+* \* Параметры → `outputter` → Допустимые значения:
+	* \+ Сниппет теперь также умеет возвращать объект в виде нативного PHP объекта или массива (удобно при вызове через `\DDTools\Snippet`). Новые значения:
+		* \* `'objectAuto'`.
+		* \* `'objectStdClass'`.
+		* \* `'objectArray'`.
+	* \* Следующие допустимые значения изменены (с обратной совместимостью):
+		* \* `'jsonAuto'` → `'stringJsonAuto'`.
+		* \* `'jsonObject'` → `'stringJsonObject'`.
+		* \* `'jsonArray'` → `'stringJsonArray'`.
+		* \* `'queryFormated'` → `'stringQueryFormatted'`.
+
+
 ## Версия 0.6 (2023-03-08)
 * \+ Параметры → `extend->objects`: Также может быть задан, как [JSON](https://ru.wikipedia.org/wiki/JSON), [HJSON](https://hjson.github.io/) или [Query string](https://en.wikipedia.org/wiki/Query_string).
 
@@ -26,7 +41,7 @@
 
 ## Версия 0.3 (2020-06-03)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1.
-* \+ Параметры → `sourceObject`, `extend`: Также может задаваться как `stringQueryFormated`.
+* \+ Параметры → `sourceObject`, `extend`: Также может задаваться как `stringQueryFormatted`.
 * \* Рефакторинг.
 * \* README:
 	* \- Home page.

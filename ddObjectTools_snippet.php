@@ -1,7 +1,7 @@
 <?php
 /**
  * ddObjectTools
- * @version 0.6 (2023-03-08)
+ * @version 0.7 (2023-03-30)
  * 
  * @see README.md
  * 

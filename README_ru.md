@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.51
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.57
 
 
 ## Документация
@@ -22,7 +22,7 @@
 ##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.6</b> Tools for modifying objects.`.
+2. Описание: `<b>0.7</b> Tools for modifying objects.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
@@ -65,7 +65,7 @@ require_once(
 		* `stringJsonArray` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — в виде [HJSON](https://hjson.github.io/)
 		* `stringHjsonArray` — в виде [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* Также может быть задан, как нативный PHP объект или массив (например, для вызовов через `$modx->runSnippet`).
 			* `array`
 			* `object`
@@ -76,7 +76,7 @@ require_once(
 	* Допустимые значения:
 		* `stringJsonObject` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — в виде [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* Также может быть задан, как нативный PHP объект или массив (например, для вызовов через `$modx->runSnippet`).
 			* `arrayAssociative`
 			* `object`
@@ -88,7 +88,7 @@ require_once(
 		* `array`
 		* `stringJsonArray` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
 		* `stringHjsonArray` — в виде [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* **Обязателен**
 	
 * `extend->objects[i]`
@@ -114,19 +114,25 @@ require_once(
 	* Значение по умолчанию: `true`
 	
 * `getPropValue`
-	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.
+	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.  
+		Вы также можете использовать `'.'` для получения вложенных свойств (больше информации см. `\DDTools\ObjectTools::getPropValue`).
 	* Допустимые значения: `string`
 	* Значение по умолчанию: —
 	
 * `outputter`
 	* Описание: Формат вывода (когда результат является объектом или массивом).  
-		Значения регистронезависимы (следующие значения равны: `jsonauto`, `JsonAuto`, `JSONAUTO` и т. п.).
+		Значения регистронезависимы (следующие значения равны: `stringjsonauto`, `stringJsonAuto`, `STRINGJSONAUTO` и т. п.).
 	* Допустимые значения:
-		* `'jsonAuto'` — автоматиески будет выбран `jsonObject` или `jsonArray`, в зависимости от результата
-		* `'jsonObject'`
-		* `'jsonArray'`
-		* `'queryFormated'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
-	* Значение по умолчанию: `'jsonAuto'`
+		* Сниппет умеет возвращать объект в виде строки:
+			* `'stringJsonAuto'` — автоматиески будет выбран `stringJsonObject` или `stringJsonArray`, в зависимости от результата
+			* `'stringJsonObject'`
+			* `'stringJsonArray'`
+			* `'stringQueryFormatted'` — [Query string](https://ru.wikipedia.org/wiki/Query_string)
+		* Сниппет также умеет возвращать объект в виде нативного PHP объекта или массива (удобно при вызове через `\DDTools\Snippet`):
+			* `'objectAuto'` — `stdClass` или `array` в зависимости от результата
+			* `'objectStdClass'` — `stdClass`
+			* `'objectArray'` — `array`
+	* Значение по умолчанию: `'stringJsonAuto'`
 
 
 ### Примеры

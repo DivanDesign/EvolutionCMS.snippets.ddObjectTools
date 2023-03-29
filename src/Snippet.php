@@ -3,14 +3,14 @@ namespace ddObjectTools;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '0.6.0',
+		$version = '0.7.0',
 		
 		$params = [
 			//Defaults
 			'sourceObject' => '{}',
 			'extend' => null,
 			'getPropValue' => null,
-			'outputter' => 'jsonAuto'
+			'outputter' => 'stringJsonAuto'
 		],
 		
 		$paramsTypes = [
@@ -19,15 +19,40 @@ class Snippet extends \DDTools\Snippet {
 	;
 	
 	/**
+	 * prepareParams
+	 * @version 1.0 (2023-03-29)
+	 *
+	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
+	 *
+	 * @return {void}
+	 */
+	protected function prepareParams($params = []){
+		parent::prepareParams($params);
+		
+		//Backward compatibility
+		$outputterFirstChars = substr(
+			strtolower($this->params->outputter),
+			0,
+			4
+		);
+		if (
+			$outputterFirstChars == 'json' ||
+			$outputterFirstChars == 'quer'
+		){
+			$this->params->outputter =
+				'string' .
+				$this->params->outputter
+			;
+		}
+	}
+	
+	/**
 	 * run
-	 * @version 1.1 (2023-03-08)
+	 * @version 1.1.1 (2023-03-29)
 	 * 
 	 * @return {string}
 	 */
 	public function run(){
-		//The snippet must return an empty string even if result is absent
-		$result = '';
-		
 		//If need to extend
 		if (!is_null($this->params->extend)){
 			$this->params->extend = \DDTools\ObjectTools::convertType([
@@ -69,9 +94,7 @@ class Snippet extends \DDTools\Snippet {
 		){
 			$result = \DDTools\ObjectTools::convertType([
 				'object' => $result,
-				'type' =>
-					'string' .
-					$this->params->outputter
+				'type' => $this->params->outputter
 			]);
 		}
 		

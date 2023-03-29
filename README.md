@@ -7,7 +7,7 @@ Tools for modifying objects.
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.51
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.57
 
 
 
@@ -20,7 +20,7 @@ Tools for modifying objects.
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddObjectTools`.
-2. Description: `<b>0.6</b> Tools for modifying objects.`.
+2. Description: `<b>0.7</b> Tools for modifying objects.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddObjectTools_snippet.php` file from the archive.
@@ -63,7 +63,7 @@ require_once(
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
 		* `stringHjsonArray` — as [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* It can also be set as a native PHP object or array (e. g. for calls through `$modx->runSnippet`):
 			* `array`
 			* `object`
@@ -74,7 +74,7 @@ require_once(
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* It can also be set as a native PHP object or array (e. g. for calls through `$modx->runSnippet`):
 			* `arrayAssociative`
 			* `object`
@@ -86,7 +86,7 @@ require_once(
 		* `array`
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonArray` — as [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* **Required**
 	
 * `extend->objects[i]`
@@ -112,19 +112,25 @@ require_once(
 	* Default value: `true`
 	
 * `getPropValue`
-	* Desctription: Object property name or array index / key to return.
+	* Desctription: Object property name or array index / key to return.  
+		You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
 	* Valid values: `string`
 	* Default value: —
 	
 * `outputter`
 	* Desctription: Output format (when result is an object or array).  
-		Values are case insensitive (the following values are equal: `'jsonauto'`, `'JsonAuto'`, `'JSONAUTO'`, etc).
+		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
 	* Valid values:
-		* `'jsonAuto'` — `jsonObject` or `jsonArray` depends on result object
-		* `'jsonObject'`
-		* `'jsonArray'`
-		* `'queryFormated'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
-	* Default value: `'jsonAuto'`
+		* The snippet can return object as string:
+			* `'stringJsonAuto'` — `stringJsonObject` or `stringJsonArray` depends on result object
+			* `'stringJsonObject'`
+			* `'stringJsonArray'`
+			* `'stringQueryFormatted'` — [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* The snippet can also return object as a native PHP object or array (it is convenient to call through `\DDTools\Snippet`).
+			* `'objectAuto'` — `stdClass` or `array` depends on result object
+			* `'objectStdClass'` — `stdClass`
+			* `'objectArray'` — `array`
+	* Default value: `'stringJsonAuto'`
 
 
 ## Examples
