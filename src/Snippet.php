@@ -3,7 +3,7 @@ namespace ddObjectTools;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '0.6.0',
+		$version = '0.7.0',
 		
 		$params = [
 			//Defaults

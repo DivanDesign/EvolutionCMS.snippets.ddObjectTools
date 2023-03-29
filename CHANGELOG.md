@@ -1,6 +1,21 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Version 0.7 (2023-03-30)
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.57 is required.
+* \+ Parameters → `getPropValue`: You can now get the value of an object property or an array element in any nesting level. Just use `.` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
+* \* Parameters → `outputter` → Valid values:
+	* \+ The snippet can also return object as a native PHP object or array (it is convenient to call through `\DDTools\Snippet`). The following new values:
+		* \* `'objectAuto'`.
+		* \* `'objectStdClass'`.
+		* \* `'objectArray'`.
+	* \* The foillowing have been changed (with backward compatibility):
+		* \* `'jsonAuto'` → `'stringJsonAuto'`.
+		* \* `'jsonObject'` → `'stringJsonObject'`.
+		* \* `'jsonArray'` → `'stringJsonArray'`.
+		* \* `'queryFormated'` → `'stringQueryFormatted'`.
+
+
 ## Version 0.6 (2023-03-08)
 * \+ Parameters → `extend->objects`: Can also be set as [JSON](https://en.wikipedia.org/wiki/JSON), [HJSON](https://hjson.github.io/) or [Query string](https://en.wikipedia.org/wiki/Query_string).
 
