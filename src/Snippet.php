@@ -11,6 +11,7 @@ class Snippet extends \DDTools\Snippet {
 			'extend' => null,
 			'getPropValue' => [
 				'name' => null,
+				'notFoundResult' => null,
 			],
 			'outputter' => 'stringJsonAuto'
 		],
@@ -22,7 +23,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * prepareParams
-	 * @version 1.1 (2024-06-13)
+	 * @version 1.2 (2024-06-13)
 	 *
 	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
 	 *
@@ -63,14 +64,15 @@ class Snippet extends \DDTools\Snippet {
 			? $params_getPropValueObject
 			//If the parameter has been set as simple property name
 			: (object) [
-				'name' => $params_getPropValueRaw
+				'name' => $params_getPropValueRaw,
+				'notFoundResult' => null,
 			]
 		;
 	}
 	
 	/**
 	 * run
-	 * @version 1.1.1 (2023-03-29)
+	 * @version 1.2 (2024-06-13)
 	 * 
 	 * @return {string}
 	 */
@@ -104,7 +106,8 @@ class Snippet extends \DDTools\Snippet {
 		if (!is_null($this->params->getPropValue->name)){
 			$this->params->sourceObject = \DDTools\ObjectTools::getPropValue([
 				'object' => $this->params->sourceObject,
-				'propName' => $this->params->getPropValue->name
+				'propName' => $this->params->getPropValue->name,
+				'notFoundResult' => $this->params->getPropValue->notFoundResult,
 			]);
 		}
 		

@@ -7,7 +7,7 @@ Tools for modifying objects.
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.57
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.62
 
 
 
@@ -130,6 +130,11 @@ require_once(
 	* Valid values: `string`
 	* **Required**
 	
+* `getPropValue->notFoundResult`
+	* Description: What will be returned when the property is not found.
+	* Valid values: `mixed`
+	* Default value: `null`
+	
 * `outputter`
 	* Desctription: Output format (when result is an object or array).  
 		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
@@ -202,6 +207,27 @@ Returns:
 ```
 
 Returns: `Chuck`.
+
+
+#### Custom results when the property is not found
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		firstName: Viktor
+		lastName: Tsoi
+		dates: {
+			born: 1962.06.21
+		}
+	}`
+	&getPropValue=`{
+		name: dates.death
+		notFoundResult: forever alive
+	}`
+]]
+```
+
+Returns: `forever alive`.
 
 
 ### Get an array element

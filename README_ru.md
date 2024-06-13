@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.57
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.62
 
 
 ## Документация
@@ -132,6 +132,11 @@ require_once(
 	* Допустимые значения: `string`
 	* **Обязателен**
 	
+* `getPropValue->notFoundResult`
+	* Описание: Что вернуть, если нужное свойство не найдено.
+	* Допустимые значения: `mixed`
+	* Значение по умолчанию: `null`
+	
 * `outputter`
 	* Описание: Формат вывода (когда результат является объектом или массивом).  
 		Значения регистронезависимы (следующие значения равны: `stringjsonauto`, `stringJsonAuto`, `STRINGJSONAUTO` и т. п.).
@@ -204,6 +209,27 @@ require_once(
 ```
 
 Вернёт: `Chuck`.
+
+
+#### Кастомный результат, когда нужное свойство не найдено
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		firstName: Виктор
+		lastName: Цой
+		dates: {
+			born: 1962.06.21
+		}
+	}`
+	&getPropValue=`{
+		name: dates.death
+		notFoundResult: вечно живой
+	}`
+]]
+```
+
+Returns: `вечно живой`.
 
 
 #### Получить значение элемента массива
