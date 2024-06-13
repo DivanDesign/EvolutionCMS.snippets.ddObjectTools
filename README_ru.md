@@ -16,25 +16,7 @@
 ### Установка
 
 
-#### Вручную
-
-
-##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
-
-1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.7</b> Tools for modifying objects.`.
-3. Категория: `Core`.
-4. Анализировать DocBlock: `no`.
-5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
-
-
-##### 2. Элементы → Управление файлами
-
-1. Создайте новую папку `assets/snippets/ddObjectTools/`.
-2. Извлеките содержимое архива в неё (кроме файла `ddObjectTools_snippet.php`).
-
-
-#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+#### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Просто вызовите следующий код в своих исходинках или модуле [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -54,6 +36,24 @@ require_once(
 
 * Если `ddObjectTools` отсутствует на вашем сайте, `ddInstaller` просто установит его.
 * Если `ddObjectTools` уже есть на вашем сайте, `ddInstaller` проверит его версию и обновит, если нужно. 
+
+
+#### Вручную
+
+
+##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
+
+1. Название сниппета: `ddObjectTools`.
+2. Описание: `<b>0.7</b> Tools for modifying objects.`.
+3. Категория: `Core`.
+4. Анализировать DocBlock: `no`.
+5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
+
+
+##### 2. Элементы → Управление файлами
+
+1. Создайте новую папку `assets/snippets/ddObjectTools/`.
+2. Извлеките содержимое архива в неё (кроме файла `ddObjectTools_snippet.php`).
 
 
 ### Описание параметров
