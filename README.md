@@ -57,7 +57,7 @@ require_once(
 ## Parameters description
 
 * `sourceObject`
-	* Desctription: Source object or array.
+	* Description: Source object or array.
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
@@ -70,7 +70,7 @@ require_once(
 	* Default value: `'{}'`
 	
 * `extend`
-	* Desctription: Merge the contents of two or more objects / arrays together into `sourceObject` (it will receive the new properties).
+	* Description: Merge the contents of two or more objects / arrays together into `sourceObject` (it will receive the new properties).
 	* Valid values:
 		* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
@@ -81,7 +81,7 @@ require_once(
 	* Default value: —
 	
 * `extend->objects`
-	* Desctription: Objects or arrays to merge. Moreover, objects can extend arrays and vice versa.
+	* Description: Objects or arrays to merge. Moreover, objects can extend arrays and vice versa.
 	* Valid values:
 		* `array`
 		* `stringJsonArray` — as [JSON](https://en.wikipedia.org/wiki/JSON)
@@ -90,19 +90,19 @@ require_once(
 	* **Required**
 	
 * `extend->objects[i]`
-	* Desctription: An object or array containing additional properties to merge in.
+	* Description: An object or array containing additional properties to merge in.
 	* Valid values:
 		* `object`
 		* `array`
 	* **Required**
 	
 * `extend->deep`
-	* Desctription: If true, the merge becomes recursive (aka “deep copy”).
+	* Description: If true, the merge becomes recursive (aka “deep copy”).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `extend->overwriteWithEmpty`
-	* Desctription: Overwrite fields with empty values.  
+	* Description: Overwrite fields with empty values.  
 		The following values are considered to be empty:
 		* `''` — an empty string
 		* `[]` — an empty array
@@ -112,7 +112,7 @@ require_once(
 	* Default value: `true`
 	
 * `getPropValue`
-	* Desctription: This parameter allows you to return required property of an object.
+	* Description: This parameter allows you to return required property of an object.
 	* Valid values:
 		* `string` — just name of a property or array index / key to return, use as `getPropValue->name` in this case
 		* An object of additional parameters:
@@ -125,7 +125,7 @@ require_once(
 	* Default value: —
 	
 * `getPropValue->name`
-	* Desctription: Object property name or array index / key to return.  
+	* Description: Object property name or array index / key to return.  
 		You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
 	* Valid values: `string`
 	* **Required**
@@ -136,7 +136,7 @@ require_once(
 	* Default value: `null`
 	
 * `outputter`
-	* Desctription: Output format (when result is an object or array).  
+	* Description: Output format (when result is an object or array).  
 		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
 	* Valid values:
 		* The snippet can return object as string:
