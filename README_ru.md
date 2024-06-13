@@ -48,7 +48,7 @@ require_once(
 //Установка (MODX)EvolutionCMS.snippets.ddObjectTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddObjectTools',
-	'type' => 'snippet'
+	'type' => 'snippet',
 ]);
 ```
 
@@ -289,21 +289,21 @@ require_once(
 			'cat' => 'mew',
 			'dog' => [
 				'name' => 'Floyd',
-				'weight' => 6
+				'weight' => 6,
 			],
-			'rabbit' => 42
+			'rabbit' => 42,
 		],
 		'extend' => [
 			'objects' => [
 				[
 					'dog' => [
-						'weight' => 11
+						'weight' => 11,
 					],
-					'bird' => 0
-				]
-			]
-		]
-	]
+					'bird' => 0,
+				],
+			],
+		],
+	],
 ]);
 ```
 

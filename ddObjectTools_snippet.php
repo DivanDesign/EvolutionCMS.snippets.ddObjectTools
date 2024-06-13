@@ -18,6 +18,6 @@ require_once(
 
 return \DDTools\Snippet::runSnippet([
 	'name' => 'ddObjectTools',
-	'params' => $params
+	'params' => $params,
 ]);
 ?>
