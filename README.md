@@ -153,26 +153,28 @@ require_once(
 
 ## Examples
 
+All examples are written using [HJSON](https://hjson.github.io/), but if you want you can use vanilla JSON instead.
+
 
 ### Merge the contents of two or more objects together into the first object (the `extend` parameter)
 
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"cat": "mew",
-		"dog": {
-			"name": "Floyd",
-			"weight": 6
-		},
-		"rabbit": 42
+		cat: mew
+		dog: {
+			name: Floyd
+			weight: 6
+		}
+		rabbit: 42
 	}`
 	&extend=`{
-		"objects": [
+		objects: [
 			{
-				"dog": {
-					"weight": 10
-				},
-				"bird": 0
+				dog: {
+					weight: 10
+				}
+				bird: 0
 			}
 		]
 	}`
@@ -199,8 +201,8 @@ Returns:
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"firstName": "Chuck",
-		"lastName": "Norris"
+		firstName: Chuck
+		lastName: Norris
 	}`
 	&getPropValue=`firstName`
 ]]
@@ -235,9 +237,9 @@ Returns: `forever alive`.
 ```
 [[ddObjectTools?
 	&sourceObject=`[
-		"Pink Floyd",
-		"The Beatles",
-		"Queen"
+		Pink Floyd
+		The Beatles
+		Queen
 	]`
 	&getPropValue=`2`
 ]]
@@ -251,8 +253,8 @@ Returns: `Queen`.
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"firstName": "Angus",
-		"lastName": "Young"
+		firstName: Angus
+		lastName: Young
 	}`
 	&outputter=`jsonArray`
 ]]
