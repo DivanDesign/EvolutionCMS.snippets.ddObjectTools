@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Version 1.0 (2024-06-13)
+* \+ Parameters → `getPropValue->notFoundResult`: The new optional parameter. Allows you to customize what will be returned when the required property is not found.
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.62 is required.
+
+
 ## Version 0.7 (2023-03-30)
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.57 is required.
 * \+ Parameters → `getPropValue`: You can now get the value of an object property or an array element in any nesting level. Just use `.` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
@@ -75,5 +80,5 @@
 * \+ The first release.
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />
 <style>ul{list-style:none;}</style>

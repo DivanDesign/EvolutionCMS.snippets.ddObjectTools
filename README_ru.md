@@ -7,7 +7,7 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.57
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.62
 
 
 ## Документация
@@ -16,25 +16,7 @@
 ### Установка
 
 
-#### Вручную
-
-
-##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
-
-1. Название сниппета: `ddObjectTools`.
-2. Описание: `<b>0.7</b> Tools for modifying objects.`.
-3. Категория: `Core`.
-4. Анализировать DocBlock: `no`.
-5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
-
-
-##### 2. Элементы → Управление файлами
-
-1. Создайте новую папку `assets/snippets/ddObjectTools/`.
-2. Извлеките содержимое архива в неё (кроме файла `ddObjectTools_snippet.php`).
-
-
-#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+#### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Просто вызовите следующий код в своих исходинках или модуле [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -48,12 +30,30 @@ require_once(
 //Установка (MODX)EvolutionCMS.snippets.ddObjectTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddObjectTools',
-	'type' => 'snippet'
+	'type' => 'snippet',
 ]);
 ```
 
 * Если `ddObjectTools` отсутствует на вашем сайте, `ddInstaller` просто установит его.
 * Если `ddObjectTools` уже есть на вашем сайте, `ddInstaller` проверит его версию и обновит, если нужно. 
+
+
+#### Вручную
+
+
+##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
+
+1. Название сниппета: `ddObjectTools`.
+2. Описание: `<b>1.0</b> Tools for modifying objects.`.
+3. Категория: `Core`.
+4. Анализировать DocBlock: `no`.
+5. Код сниппета (php): Вставьте содержимое файла `ddObjectTools_snippet.php` из архива.
+
+
+##### 2. Элементы → Управление файлами
+
+1. Создайте новую папку `assets/snippets/ddObjectTools/`.
+2. Извлеките содержимое архива в неё (кроме файла `ddObjectTools_snippet.php`).
 
 
 ### Описание параметров
@@ -114,10 +114,28 @@ require_once(
 	* Значение по умолчанию: `true`
 	
 * `getPropValue`
-	* Описание: Возврат значения поля объекта или элемента массива по имени свойства объекта или индексу / ключу массива.  
+	* Описание: Этот параметр позволяет получить нужное свойство объекта.
+	* Допустимые значения:
+		* `string` — просто имя поля объекта или элемента массива, которое нужно вернуть, в этом случае используйте как `getPropValue->name`
+		* Объект с дополнительными параметрами:
+			* `stringJsonObject` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
+			* `stringHjsonObject` — в виде [HJSON](https://hjson.github.io/)
+			* `stringQueryFormatted` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
+			* Также может быть задан, как нативный PHP объект или массив (например, для вызовов через `\DDTools\Snippet::runSnippet`).
+				* `arrayAssociative`
+				* `object`
+	* Значение по умолчанию: —
+	
+* `getPropValue->name`
+	* Описание: Имя поля объекта или индекс / ключ массива.  
 		Вы также можете использовать `'.'` для получения вложенных свойств (больше информации см. `\DDTools\ObjectTools::getPropValue`).
 	* Допустимые значения: `string`
-	* Значение по умолчанию: —
+	* **Обязателен**
+	
+* `getPropValue->notFoundResult`
+	* Описание: Что вернуть, если нужное свойство не найдено.
+	* Допустимые значения: `mixed`
+	* Значение по умолчанию: `null`
 	
 * `outputter`
 	* Описание: Формат вывода (когда результат является объектом или массивом).  
@@ -137,26 +155,28 @@ require_once(
 
 ### Примеры
 
+Все примеры написаны с использованием [HJSON](https://hjson.github.io/), но вместо него можно также использвоать обычный JSON.
+
 
 #### Объединить содержимое двух и более объектов вместе в первый объект (параметр `extend`)
 
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"cat": "mew",
-		"dog": {
-			"name": "Floyd",
-			"weight": 6
-		},
-		"rabbit": 42
+		cat: mew
+		dog: {
+			name: Floyd
+			weight: 6
+		}
+		rabbit: 42
 	}`
 	&extend=`{
-		"objects": [
+		objects: [
 			{
-				"dog": {
-					"weight": 10
-				},
-				"bird": 0
+				dog: {
+					weight: 10
+				}
+				bird: 0
 			}
 		]
 	}`
@@ -183,8 +203,8 @@ require_once(
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"firstName": "Chuck",
-		"lastName": "Norris"
+		firstName: Chuck
+		lastName: Norris
 	}`
 	&getPropValue=`firstName`
 ]]
@@ -193,14 +213,35 @@ require_once(
 Вернёт: `Chuck`.
 
 
+#### Кастомный результат, когда нужное свойство не найдено
+
+```
+[[ddObjectTools?
+	&sourceObject=`{
+		firstName: Виктор
+		lastName: Цой
+		dates: {
+			born: 1962.06.21
+		}
+	}`
+	&getPropValue=`{
+		name: dates.death
+		notFoundResult: вечно живой
+	}`
+]]
+```
+
+Returns: `вечно живой`.
+
+
 #### Получить значение элемента массива
 
 ```
 [[ddObjectTools?
 	&sourceObject=`[
-		"Pink Floyd",
-		"The Beatles",
-		"Queen"
+		Pink Floyd
+		The Beatles
+		Queen
 	]`
 	&getPropValue=`2`
 ]]
@@ -214,8 +255,8 @@ require_once(
 ```
 [[ddObjectTools?
 	&sourceObject=`{
-		"firstName": "Angus",
-		"lastName": "Young"
+		firstName: Angus
+		lastName: Young
 	}`
 	&outputter=`jsonArray`
 ]]
@@ -248,21 +289,21 @@ require_once(
 			'cat' => 'mew',
 			'dog' => [
 				'name' => 'Floyd',
-				'weight' => 6
+				'weight' => 6,
 			],
-			'rabbit' => 42
+			'rabbit' => 42,
 		],
 		'extend' => [
 			'objects' => [
 				[
 					'dog' => [
-						'weight' => 11
+						'weight' => 11,
 					],
-					'bird' => 0
-				]
-			]
-		]
-	]
+					'bird' => 0,
+				],
+			],
+		],
+	],
 ]);
 ```
 
@@ -272,6 +313,7 @@ require_once(
 * [Home page](https://code.divandesign.ru/modx/ddobjecttools)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddobjecttools)
+* [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddObjectTools)
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />

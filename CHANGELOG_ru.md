@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddObjectTools changelog
 
 
+## Версия 1.0 (2024-06-13)
+* \+ Параметры → `getPropValue->notFoundResult`: Новый опциональный параметр. Позволяет настроить, что будет возвращено, если нужное свойство не найдено.
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.62.
+
+
 ## Версия 0.7 (2023-03-30)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.57.
 * \+ Параметры → `getPropValue`: Теперь сниппет умеет получать значение свойства объекта или элемента массива на любом уровне вложенности. Просто используйте '.' в параметре для получения свойств вложенных элементов (больше информации см. `\DDTools\ObjectTools::getPropValue`).
@@ -75,5 +80,5 @@
 * \+ Первый релиз.
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />
 <style>ul{list-style:none;}</style>
