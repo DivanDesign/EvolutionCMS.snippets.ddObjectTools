@@ -9,7 +9,9 @@ class Snippet extends \DDTools\Snippet {
 			//Defaults
 			'sourceObject' => '{}',
 			'extend' => null,
-			'getPropValue' => null,
+			'getPropValue' => [
+				'name' => null,
+			],
 			'outputter' => 'stringJsonAuto'
 		],
 		
@@ -20,7 +22,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * prepareParams
-	 * @version 1.0 (2023-03-29)
+	 * @version 1.1 (2024-06-13)
 	 *
 	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
 	 *
@@ -44,6 +46,26 @@ class Snippet extends \DDTools\Snippet {
 				$this->params->outputter
 			;
 		}
+		
+		$params_getPropValueRaw = $this->params->getPropValue;
+		$params_getPropValueObject = \DDTools\ObjectTools::convertType([
+			'object' => $params_getPropValueRaw,
+			'type' => 'objectStdClass',
+		]);
+		
+		$this->params->getPropValue =
+			//If the parameter has been set as an object
+			\DDTools\ObjectTools::isPropExists([
+				'object' => $params_getPropValueObject,
+				'propName' => 'name',
+			])
+			//Just use the object
+			? $params_getPropValueObject
+			//If the parameter has been set as simple property name
+			: (object) [
+				'name' => $params_getPropValueRaw
+			]
+		;
 	}
 	
 	/**
@@ -79,10 +101,10 @@ class Snippet extends \DDTools\Snippet {
 		}
 		
 		//If need to return only specified item
-		if (!is_null($this->params->getPropValue)){
+		if (!is_null($this->params->getPropValue->name)){
 			$this->params->sourceObject = \DDTools\ObjectTools::getPropValue([
 				'object' => $this->params->sourceObject,
-				'propName' => $this->params->getPropValue
+				'propName' => $this->params->getPropValue->name
 			]);
 		}
 		

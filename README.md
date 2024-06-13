@@ -112,10 +112,23 @@ require_once(
 	* Default value: `true`
 	
 * `getPropValue`
+	* Desctription: This parameter allows you to return required property of an object.
+	* Valid values:
+		* `string` — just name of a property or array index / key to return, use as `getPropValue->name` in this case
+		* An object of additional parameters:
+			* `stringJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+			* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
+			* `stringQueryFormatted` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+			* It can also be set as native PHP object or array (e. g. for calls through `\DDTools\Snippet::runSnippet` or `$modx->runSnippet`):
+				* `arrayAssociative`
+				* `object`
+	* Default value: —
+	
+* `getPropValue->name`
 	* Desctription: Object property name or array index / key to return.  
 		You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
 	* Valid values: `string`
-	* Default value: —
+	* **Required**
 	
 * `outputter`
 	* Desctription: Output format (when result is an object or array).  
