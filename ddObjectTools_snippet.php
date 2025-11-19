@@ -7,7 +7,7 @@
  * 
  * @link https://code.divandesign.ru/modx/ddobjecttools
  * 
- * @copyright 2020–2024 Ronef {@link https://Ronef.ru }
+ * @copyright 2020–2024 Ronef {@link https://Ronef.me }
  */
 
 // Include (MODX)EvolutionCMS.libraries.ddTools
