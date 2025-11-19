@@ -30,7 +30,6 @@ require_once(
 // Установка (MODX)EvolutionCMS.snippets.ddObjectTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddObjectTools',
-	'type' => 'snippet',
 ]);
 ```
 
