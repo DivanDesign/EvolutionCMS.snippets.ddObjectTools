@@ -21,8 +21,8 @@ Just run the following PHP code in your sources or [Console](https://github.com/
 ```php
 // Include (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddInstaller/require.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddInstaller/require.php'
 );
 
 // Install (MODX)EvolutionCMS.snippets.ddObjectTools
@@ -102,12 +102,12 @@ require_once(
 	* Default value: `true`
 	
 * `extend->overwriteWithEmpty`
-	* Description: Overwrite fields with empty values.  
-		The following values are considered to be empty:
-		* `''` — an empty string
-		* `[]` — an empty array
-		* `(object) []` — an empty object
-		* `NULL`
+	* Description: Overwrite fields with empty values.
+		* The following values are considered to be empty:
+			* `''` — an empty string
+			* `[]` — an empty array
+			* `(object) []` — an empty object
+			* `NULL`
 	* Valid values: `boolean`
 	* Default value: `true`
 	
@@ -125,8 +125,8 @@ require_once(
 	* Default value: —
 	
 * `getPropValue->name`
-	* Description: Object property name or array index / key to return.  
-		You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
+	* Description: Object property name or array index / key to return.
+		* You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
 	* Valid values: `string`
 	* **Required**
 	
@@ -136,8 +136,8 @@ require_once(
 	* Default value: `null`
 	
 * `outputter`
-	* Description: Output format (when result is an object or array).  
-		Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
+	* Description: Output format (when result is an object or array).
+		* Values are case insensitive (the following values are equal: `'stringjsonauto'`, `'stringJsonAuto'`, `'STRINGJSONAUTO'`, etc).
 	* Valid values:
 		* The snippet can return object as string:
 			* `'stringJsonAuto'` — `stringJsonObject` or `stringJsonArray` depends on result object

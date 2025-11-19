@@ -2,28 +2,26 @@
 namespace ddObjectTools;
 
 class Snippet extends \DDTools\Snippet {
-	protected
-		$version = '1.0.0',
-		
-		$params = [
-			// Defaults
-			'sourceObject' => '{}',
-			'extend' => null,
-			'getPropValue' => [
-				'name' => null,
-				'notFoundResult' => null,
-			],
-			'outputter' => 'stringJsonAuto',
+	protected $version = '1.0.0';
+	
+	protected $params = [
+		// Defaults
+		'sourceObject' => '{}',
+		'extend' => null,
+		'getPropValue' => [
+			'name' => null,
+			'notFoundResult' => null,
 		],
-		
-		$paramsTypes = [
-			'sourceObject' => 'objectAuto',
-		]
-	;
+		'outputter' => 'stringJsonAuto',
+	];
+	
+	protected $paramsTypes = [
+		'sourceObject' => 'objectAuto',
+	];
 	
 	/**
 	 * prepareParams
-	 * @version 1.2.1 (2024-08-06)
+	 * @version 1.2.2 (2025-11-19)
 	 * 
 	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
 	 * 
@@ -39,12 +37,12 @@ class Snippet extends \DDTools\Snippet {
 			4
 		);
 		if (
-			$outputterFirstChars == 'json' ||
-			$outputterFirstChars == 'quer'
+			$outputterFirstChars == 'json'
+			|| $outputterFirstChars == 'quer'
 		){
 			$this->params->outputter =
-				'string' .
-				$this->params->outputter
+				'string'
+				. $this->params->outputter
 			;
 		}
 		
@@ -114,8 +112,8 @@ class Snippet extends \DDTools\Snippet {
 		$result = $this->params->sourceObject;
 		
 		if (
-			is_object($result) ||
-			is_array($result)
+			is_object($result)
+			|| is_array($result)
 		){
 			$result = \DDTools\ObjectTools::convertType([
 				'object' => $result,

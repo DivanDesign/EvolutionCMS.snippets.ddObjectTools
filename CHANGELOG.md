@@ -2,11 +2,13 @@
 
 
 ## Version 1.0 (2024-06-13)
+
 * \+ Parameters → `getPropValue->notFoundResult`: The new optional parameter. Allows you to customize what will be returned when the required property is not found.
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.62 is required.
 
 
 ## Version 0.7 (2023-03-30)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.57 is required.
 * \+ Parameters → `getPropValue`: You can now get the value of an object property or an array element in any nesting level. Just use `.` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
 * \* Parameters → `outputter` → Valid values:
@@ -22,15 +24,18 @@
 
 
 ## Version 0.6 (2023-03-08)
+
 * \+ Parameters → `extend->objects`: Can also be set as [JSON](https://en.wikipedia.org/wiki/JSON), [HJSON](https://hjson.github.io/) or [Query string](https://en.wikipedia.org/wiki/Query_string).
 
 
 ## Version 0.5 (2021-11-08)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.51 is required.
 * \+ Parameters → `outputter`: The new parameter. Allows to forcibly convert the snippet result into a JSON object/array or URL-encoded query string if needed.
 
 
 ## Version 0.4 (2021-04-28)
+
 * \* Attention! PHP >= 5.6 is required.
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.49.1 is required.
 * \+ Parameters → `sourceObject`, `extend`: Can also be set as [HJSON](https://hjson.github.io/).
@@ -45,6 +50,7 @@
 
 
 ## Version 0.3 (2020-06-03)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
 * \+ Parameters → `sourceObject`, `extend`: Can also be set as `stringQueryFormatted`.
 * \* Refactoring.
@@ -55,6 +61,7 @@
 
 
 ## Version 0.2 (2020-05-14)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.34 is required.
 * \+ Parameters → `sourceObject`.
 * \+ Parameters → `getPropValue`. The ability to return specified object property / array element.
@@ -77,6 +84,7 @@
 
 
 ## Version 0.1 (2020-04-23)
+
 * \+ The first release.
 
 
