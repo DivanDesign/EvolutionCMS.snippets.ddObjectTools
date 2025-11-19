@@ -21,7 +21,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * prepareParams
-	 * @version 1.2.2 (2025-11-19)
+	 * @version 1.2.3 (2025-11-19)
 	 * 
 	 * @param $params {stdClass|arrayAssociative|stringJsonObject|stringHjsonObject|stringQueryFormatted}
 	 * 
@@ -47,14 +47,14 @@ class Snippet extends \DDTools\Snippet {
 		}
 		
 		$params_getPropValueRaw = $this->params->getPropValue;
-		$params_getPropValueObject = \DDTools\ObjectTools::convertType([
+		$params_getPropValueObject = \DDTools\Tools\Objects::convertType([
 			'object' => $params_getPropValueRaw,
 			'type' => 'objectStdClass',
 		]);
 		
 		$this->params->getPropValue =
 			// If the parameter has been set as an object
-			\DDTools\ObjectTools::isPropExists([
+			\DDTools\Tools\Objects::isPropExists([
 				'object' => $params_getPropValueObject,
 				'propName' => 'name',
 			])
@@ -70,14 +70,14 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.2.3 (2024-08-06)
+	 * @version 1.2.4 (2025-11-19)
 	 * 
 	 * @return {string}
 	 */
 	public function run(){
 		// If need to extend
 		if (!is_null($this->params->extend)){
-			$this->params->extend = \DDTools\ObjectTools::convertType([
+			$this->params->extend = \DDTools\Tools\Objects::convertType([
 				'object' => $this->params->extend,
 				'type' => 'objectStdClass',
 			]);
@@ -85,7 +85,7 @@ class Snippet extends \DDTools\Snippet {
 			// If is valid
 			if (!\ddTools::isEmpty($this->params->extend)){
 				if (!is_array($this->params->extend->objects)){
-					$this->params->extend->objects = \DDTools\ObjectTools::convertType([
+					$this->params->extend->objects = \DDTools\Tools\Objects::convertType([
 						'object' => $this->params->extend->objects,
 						'type' => 'objectArray',
 					]);
@@ -96,13 +96,13 @@ class Snippet extends \DDTools\Snippet {
 					$this->params->sourceObject
 				);
 				
-				$this->params->sourceObject = \DDTools\ObjectTools::extend($this->params->extend);
+				$this->params->sourceObject = \DDTools\Tools\Objects::extend($this->params->extend);
 			}
 		}
 		
 		// If need to return only specified item
 		if (!is_null($this->params->getPropValue->name)){
-			$this->params->sourceObject = \DDTools\ObjectTools::getPropValue([
+			$this->params->sourceObject = \DDTools\Tools\Objects::getPropValue([
 				'object' => $this->params->sourceObject,
 				'propName' => $this->params->getPropValue->name,
 				'notFoundResult' => $this->params->getPropValue->notFoundResult,
@@ -115,7 +115,7 @@ class Snippet extends \DDTools\Snippet {
 			is_object($result)
 			|| is_array($result)
 		){
-			$result = \DDTools\ObjectTools::convertType([
+			$result = \DDTools\Tools\Objects::convertType([
 				'object' => $result,
 				'type' => $this->params->outputter,
 			]);

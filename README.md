@@ -7,7 +7,7 @@ Tools for modifying objects.
 
 * PHP >= 7.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.62
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.63
 
 
 
@@ -125,7 +125,7 @@ require_once(
 	
 * `getPropValue->name`
 	* Description: Object property name or array index / key to return.
-		* You can also use `'.'` to get nested properties (see `\DDTools\ObjectTools::getPropValue` for more info).
+		* You can also use `'.'` to get nested properties (see `\DDTools\Tools\Objects::getPropValue` for more info).
 	* Valid values: `string`
 	* **Required**
 	
